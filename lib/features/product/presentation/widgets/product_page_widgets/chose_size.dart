@@ -1,9 +1,11 @@
 import 'package:flutter/material.dart';
 
-String size = "";
+import '../../../../../core/var.dart';
+import '../var.dart';
+
+
 List<String> sizeList = ["S", "M", "L", "XL", "XXL"];
-final booleanSizeList =
-    List<bool>.generate(sizeList.length, (int index) => false, growable: true);
+
 
 class ChoseSize extends StatefulWidget {
   const ChoseSize({Key? key}) : super(key: key);

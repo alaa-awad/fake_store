@@ -1,5 +1,6 @@
 import 'package:fake_store/features/product/presentation/widgets/product_page_widgets/price_text.dart';
 import 'package:flutter/material.dart';
+import '../../../../core/var.dart';
 import '../../domain/entities/product.dart';
 import '../widgets/product_page_widgets/button_add_to_card.dart';
 import '../widgets/product_page_widgets/chose_color.dart';

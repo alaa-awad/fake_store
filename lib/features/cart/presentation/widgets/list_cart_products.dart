@@ -3,21 +3,26 @@ import 'package:flutter/material.dart';
 
 import '../../../../core/var.dart';
 
-class ListCartProducts extends StatelessWidget {
+class ListCartProducts extends StatefulWidget {
   const ListCartProducts({Key? key}) : super(key: key);
 
   @override
+  State<ListCartProducts> createState() => _ListCartProductsState();
+}
+
+class _ListCartProductsState extends State<ListCartProducts> {
+  @override
   Widget build(BuildContext context) {
     return ListView.separated(
-      shrinkWrap: true,
+        shrinkWrap: true,
         itemBuilder: (context, index) {
           return ListCartItem(
-            product: productsCartList[index],
+            cartItem: carts[index],
           );
         },
         separatorBuilder: (context, index) => const SizedBox(
               height: 15,
             ),
-        itemCount: productsCartList.length);
+        itemCount: carts.length);
   }
 }

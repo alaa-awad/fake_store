@@ -1,11 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:hexcolor/hexcolor.dart';
 
-String color = "";
-List<String> colorList = ["#2ab7ca", "#fed766", "#f4b6c2", "#005b96", "#e7d3d3","#fe8a71"];
-//List<bool> booleanColorList =[];
+import '../var.dart';
 
-List<bool> booleanColorList = List<bool>.generate(colorList.length, (int index) => false, growable: true);
+
+List<String> colorList = ["#2ab7ca", "#fed766", "#f4b6c2", "#005b96", "#e7d3d3","#fe8a71"];
+
 
 class ChoseColor extends StatefulWidget {
   const ChoseColor({Key? key}) : super(key: key);

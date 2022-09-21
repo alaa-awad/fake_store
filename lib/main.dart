@@ -1,5 +1,6 @@
 import 'package:fake_store/core/dio/dio_helper.dart';
 import 'package:fake_store/core/themes/app_theme.dart';
+import 'package:fake_store/features/cart/presentation/cubit/cart_cubit.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_localizations/flutter_localizations.dart';
@@ -32,6 +33,7 @@ class MyApp extends StatelessWidget {
        providers: [
         BlocProvider( create: (BuildContext context) => di.sl<ProductCubit>()..getAllCategoriesCubit()..getAllProductsCubit(),),
         BlocProvider( create: (BuildContext context) => di.sl<UserCubit>()),
+        BlocProvider( create: (BuildContext context) => CartCubit()),
        ],
         child: MaterialApp(
           title: 'Fake Story',
@@ -56,7 +58,7 @@ class MyApp extends StatelessWidget {
             return supportedLocale.first;
             //
           },
-          locale: const Locale("en", ''),
+          locale: const Locale("ar", ''),
           debugShowCheckedModeBanner: false,
           theme: lightTheme,
           home: home,

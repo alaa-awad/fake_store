@@ -1,1 +1,0 @@
-double supTotal = 0;

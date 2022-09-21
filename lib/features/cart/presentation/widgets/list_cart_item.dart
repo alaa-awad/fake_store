@@ -1,7 +1,9 @@
+import 'package:fake_store/core/var.dart';
 import 'package:fake_store/features/cart/domain/entities/cart.dart';
+import 'package:fake_store/features/cart/presentation/cubit/cart_cubit.dart';
 import 'package:flutter/material.dart';
-import '../../../product/domain/entities/product.dart';
-import 'calculate_sup_total.dart';
+
+import '../../../../core/localization/get_translate.dart';
 
 class ListCartItem extends StatefulWidget {
   final CartItem cartItem;
@@ -49,9 +51,9 @@ class _ListCartItemState extends State<ListCartItem> {
                     )),
                 Row(
                   children:  [
-                    const Text(
-                      "Size : ",
-                      style: TextStyle(color: Colors.grey),
+                     Text(
+                       getTranslated(context,"Cart_page_cartItem_size_key"),
+                      style: const TextStyle(color: Colors.grey),
                     ),
                     Text(
                       widget.cartItem.size,
@@ -77,6 +79,7 @@ class _ListCartItemState extends State<ListCartItem> {
                         onPressed: () {
                           setState(() {
                             widget.cartItem.quantity +=1;
+                            CartCubit.get(context).calculateSupTotal();
                           });
                         },
                         icon: const Icon(Icons.add_circle_outline_outlined)),
@@ -86,10 +89,21 @@ class _ListCartItemState extends State<ListCartItem> {
                          setState(() {
                            if(widget.cartItem.quantity >1){
                              widget.cartItem.quantity -=1;
+                             CartCubit.get(context).calculateSupTotal();
+
                            }
                          });
                         },
                         icon: const Icon(Icons.remove_circle_outline_outlined)),
+                   const Spacer(),
+                    IconButton(
+                        onPressed: () {
+                          CartCubit.get(context).emit(DeleteProductFromCartLoading());
+                          carts.remove(widget.cartItem);
+                          CartCubit.get(context).emit(DeleteProductFromCartSuccess());
+                        },
+                        icon: const Icon(Icons.delete ,color: Colors.grey,)),
+
                   ],
                 ),
               ],

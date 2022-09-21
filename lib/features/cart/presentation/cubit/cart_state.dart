@@ -8,3 +8,9 @@ abstract class CartState extends Equatable {
 }
 
 class CartInitial extends CartState {}
+
+class SubTotalChangeLoading extends CartState {}
+class SubTotalChangeSuccess extends CartState {}
+
+class DeleteProductFromCartLoading extends CartState {}
+class DeleteProductFromCartSuccess extends CartState {}

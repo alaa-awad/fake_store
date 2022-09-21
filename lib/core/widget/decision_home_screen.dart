@@ -14,7 +14,8 @@ void decisionHomeScreen()async{
   if (AppString.userToken != null) {
     home =const HomePage();
   } else {
-    await DioHelper.init(baseUrlAuth);
-    home =  LoginScreen();
+    //await DioHelper.init(baseUrlAuth);
+   // home =  LoginScreen();
+    home =const HomePage();
   }
 }

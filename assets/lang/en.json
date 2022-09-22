@@ -46,6 +46,12 @@
   "Cart_page_Total_key": "Total",
   "Cart_page_CheckOut_title_key": "CheckOut",
 
+  "Checkout page key": "all text at checkout page",
+  "Checkout_page_appBar_title_key": "Checkout",
+  "DeliveryAddressWidget_page_text_delivery_key": "Delivery Address",
+  "PaymenthMethodWidget_page_text_PaymenthMethod_key": "Paymenth Method",
+  "MyCart_page_text_MyCart_key": "My Cart",
+  "MyCart_page_text_button_pay_now_key": "Pay Now",
 
   "Setting page key": "",
   "Setting_Page_Title_ChangeLanguage_button": "Change language",

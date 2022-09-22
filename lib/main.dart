@@ -58,7 +58,7 @@ class MyApp extends StatelessWidget {
             return supportedLocale.first;
             //
           },
-          locale: const Locale("ar", ''),
+          locale: const Locale("en", ''),
           debugShowCheckedModeBanner: false,
           theme: lightTheme,
           home: home,

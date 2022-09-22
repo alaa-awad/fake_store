@@ -19,6 +19,7 @@ class _ListCartProductsState extends State<ListCartProducts> {
       listener: (context,state){},
       builder: (context,state){
         return ListView.separated(
+        scrollDirection: Axis.vertical,
             shrinkWrap: true,
             itemBuilder: (context, index) {
               return ListCartItem(

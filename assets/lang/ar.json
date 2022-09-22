@@ -42,7 +42,12 @@
   "Cart_page_Total_key": "المجموع",
   "Cart_page_CheckOut_title_key": "الدفع",
 
-
+  "Checkout page key": "كل النصوص الخاصة بصفحة الدفع",
+  "Checkout_page_appBar_title_key": "الدفع",
+  "DeliveryAddressWidget_page_text_delivery_key": "عنوان التسليم",
+  "PaymenthMethodWidget_page_text_PaymenthMethod_key": "طرق الدفع",
+  "MyCart_page_text_MyCart_key": "سلتي",
+  "MyCart_page_text_button_pay_now_key": "الدفع الان",
 
   "Setting page key": "كل النصوص الخاصة بصفحة الاعدادات",
   "Setting_Page_Title_ChangeLanguage_button": "تغيير اللغة",

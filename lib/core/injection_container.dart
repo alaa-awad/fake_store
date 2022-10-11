@@ -1,6 +1,12 @@
 import 'package:fake_store/features/auth/domain/usecases/change_password.dart';
 import 'package:fake_store/features/auth/domain/usecases/get_profile.dart';
 import 'package:fake_store/features/auth/domain/usecases/update_profile.dart';
+import 'package:fake_store/features/cart/domain/usecases/add_payment_usecase.dart';
+import 'package:fake_store/features/cart/domain/usecases/create_payment_database_usecase.dart';
+import 'package:fake_store/features/cart/domain/usecases/delete_payment_usecase.dart';
+import 'package:fake_store/features/cart/domain/usecases/get_all_payment_usecase.dart';
+import 'package:fake_store/features/cart/domain/usecases/update_payment_usecase.dart';
+import 'package:fake_store/features/cart/presentation/cubit/cart_cubit.dart';
 import 'package:fake_store/features/product/presentation/cubit/product_cubit.dart';
 import 'package:get_it/get_it.dart';
 import 'package:internet_connection_checker/internet_connection_checker.dart';
@@ -13,6 +19,9 @@ import '../features/auth/domain/usecases/log_in_usecase.dart';
 import '../features/auth/domain/usecases/log_out_usecase.dart';
 import '../features/auth/domain/usecases/sign_up_usecase.dart';
 import '../features/auth/presentation/cubit/user_cubit.dart';
+import '../features/cart/data/datasources/cart_local_database.dart';
+import '../features/cart/data/repositories/cart_repository_impl.dart';
+import '../features/cart/domain/repositories/cart_repository.dart';
 import '../features/product/data/datasources/product_local_database.dart';
 import '../features/product/data/datasources/remote_product_database.dart';
 import '../features/product/data/repositories/product_repository_empl.dart';
@@ -75,6 +84,29 @@ Future<void> init() async {
       () => UserRemoteDataSourceWithDio());
   sl.registerLazySingleton<UserLocalDataSource>(
       () => UserLocalDataSourceWithDio());
+
+  // cubit cart
+  sl.registerFactory(() => CartCubit(
+      getAllPayment: sl(),
+      createPaymentDataBase: sl(),
+      addPayment: sl(),
+      updatePayment: sl(),
+      deletePayment: sl()));
+
+  // UseCase cart
+  sl.registerLazySingleton(() => CreatePaymentDataBaseUseCase(sl()));
+  sl.registerLazySingleton(() => GetAllPaymentUseCase(sl()));
+  sl.registerLazySingleton(() => AddPaymentUseCase(sl()));
+  sl.registerLazySingleton(() => UpdatePaymentUseCase(sl()));
+  sl.registerLazySingleton(() => DeletePaymentUseCase(sl()));
+
+  // Repository cart
+  sl.registerLazySingleton<CartRepository>(
+      () => CartRepositoryImpl(localDataBase: sl()));
+
+  // DataSources cart
+  sl.registerLazySingleton<PaymentLocalDataBase>(
+      () => PaymentLocalDataBaseFromSqfLite());
 
 //! Core
 

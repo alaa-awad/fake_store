@@ -30,11 +30,17 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MultiBlocProvider(
-       providers: [
-        BlocProvider( create: (BuildContext context) => di.sl<ProductCubit>()..getAllCategoriesCubit()..getAllProductsCubit(),),
-        BlocProvider( create: (BuildContext context) => di.sl<UserCubit>()),
-        BlocProvider( create: (BuildContext context) => CartCubit()),
-       ],
+        providers: [
+          BlocProvider(
+            create: (BuildContext context) => di.sl<ProductCubit>()
+              ..getAllCategoriesCubit()
+              ..getAllProductsCubit(),
+          ),
+          BlocProvider(create: (BuildContext context) => di.sl<UserCubit>()),
+          BlocProvider(
+              create: (BuildContext context) => di.sl<CartCubit>()
+                ..createPaymentDataBaseCubit()),
+        ],
         child: MaterialApp(
           title: 'Fake Story',
           supportedLocales: const [

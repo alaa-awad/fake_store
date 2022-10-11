@@ -32,7 +32,7 @@ class ProductCubit extends Cubit<ProductState> {
 
   static ProductCubit get(context) => BlocProvider.of(context);
 
-  List<Product> p = [];
+ // List<Product> p = [];
   void getAllProductsCubit() async {
     emit(GetAllProductsLoadingState());
     final failureOrProducts = await getAllProductsUseCase();

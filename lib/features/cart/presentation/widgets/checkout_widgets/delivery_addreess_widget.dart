@@ -14,8 +14,8 @@ class DeliveryAddressWidget extends StatelessWidget {
       const SizedBox(height: 15,),
         Row(children: [
         Container(
-          height: 50,
-          width: 50,
+          height: 60,
+          width: 60,
           decoration:  BoxDecoration(
             color: Colors.grey.shade200,
             borderRadius: const BorderRadius.all(Radius.circular(13)),
